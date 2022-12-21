@@ -1,10 +1,6 @@
 title: Reverse HP Sanity
-description: This mod starts Sora with a ton of HP, but will decrease everytime you earn an HP increase! Needs to go above GoA.
+description: This mod starts Sora with a ton of HP, but will decrease everytime you earn an HP increase! Intended for critical mode only.
 assets:
-- name: scripts/F266B00B GoA ROM.lua
-  method: copy
-  source:
-  - name: F266B00B GoA ROM.lua
 - name: scripts/ReverseHP.lua
   method: copy
   source:
