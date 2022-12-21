@@ -1,3 +1,4 @@
+NewHP = 210
 function _OnFrame()
     World = ReadByte(Now + 0x00)
     Room = ReadByte(Now + 0x01)
@@ -34,18 +35,20 @@ function Events(M,B,E) --Check for Map, Btl, and Evt
 end
 
 function Cheats()
-	if ReadByte(Slot1+0x0) > ReadByte(Slot1+0x4) then
+	local Subtractor
+	if ReadByte(Save+0x2498) < 3 then --Non-Critical
+		Subtractor = 15
+	else --Critical
+		Subtractor = 12
+	end
+	if ReadByte(Slot1+0x0) > ReadByte(Slot1+0x4) then -- Current HP Cannot go above Max HP
 		WriteByte(Slot1+0x0, ReadByte(Slot1+0x4))
 	end
-	if ReadShort(Now+0) == 0x2002 and ReadShort(Now+8) == 0x01 then
+	if ReadShort(Now+0) == 0x2002 and ReadShort(Now+8) == 0x01 then -- Sets your HP in the first room of rando
 		WriteByte(Slot1+0x4, 210)
 		WriteByte(Slot1+0x0, 210)
-	end
-	if ReadByte(Slot1+0x4) % 5 ~= 0 and ReadByte(Slot1+0x4) ~= 12 then 
-		WriteByte(Slot1+0x4, ReadByte(Slot1+0x4) - 12)
-	elseif ReadByte(Slot1+0x4) % 10 ~= 0 and ReadByte(Slot1+0x4) ~= 15 then 
-		WriteByte(Slot1+0x4, ReadByte(Slot1+0x4) - 15)
-	elseif ReadByte(Slot1+0x4) == 12 or ReadByte(Slot1+0x4) == 15 then 
-		WriteByte(Slot1+0x4, 10)
+	elseif ReadByte(Slot1+0x4) > NewHP then
+		WriteByte(Slot1+0x4, ReadByte(Slot1+0x4) - Subtractor)
+		NewHP = ReadByte(Slot1+0x4)
 	end
 end
