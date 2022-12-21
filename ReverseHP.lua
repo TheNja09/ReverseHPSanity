@@ -43,7 +43,9 @@ function Cheats()
 	end
 	if ReadByte(Slot1+0x4) % 5 ~= 0 and ReadByte(Slot1+0x4) ~= 12 then 
 		WriteByte(Slot1+0x4, ReadByte(Slot1+0x4) - 12)
-	elseif ReadByte(Slot1+0x4) == 12 then 
+	elseif ReadByte(Slot1+0x4) % 10 ~= 0 and ReadByte(Slot1+0x4) ~= 15 then 
+		WriteByte(Slot1+0x4, ReadByte(Slot1+0x4) - 15)
+	elseif ReadByte(Slot1+0x4) == 12 or ReadByte(Slot1+0x4) == 15 then 
 		WriteByte(Slot1+0x4, 10)
 	end
 end
