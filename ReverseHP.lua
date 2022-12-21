@@ -34,8 +34,14 @@ function Events(M,B,E) --Check for Map, Btl, and Evt
 end
 
 function Cheats()
+	if ReadByte(Slot1+0x0) > ReadByte(Slot1+0x4) then
+		WriteByte(Slot1+0x0, ReadByte(Slot1+0x4))
+	end
 	if ReadShort(Now+0) == 0x2002 and ReadShort(Now+8) == 0x01 then
 		WriteByte(Slot1+0x4, 210)
 		WriteByte(Slot1+0x0, 210)
+	end
+	if ReadByte(Slot1+0x4) == 212 or ReadByte(Slot1+0x4) == 202 or ReadByte(Slot1+0x4) == 192 or ReadByte(Slot1+0x4) == 182 or ReadByte(Slot1+0x4) == 172 or ReadByte(Slot1+0x4) == 162 or ReadByte(Slot1+0x4) == 152 or ReadByte(Slot1+0x4) == 142 or ReadByte(Slot1+0x4) == 132 or ReadByte(Slot1+0x4) == 122 or ReadByte(Slot1+0x4) == 112 or ReadByte(Slot1+0x4) == 102 or ReadByte(Slot1+0x4) == 92 or ReadByte(Slot1+0x4) == 82 or ReadByte(Slot1+0x4) == 72 or ReadByte(Slot1+0x4) == 62 or ReadByte(Slot1+0x4) == 52 or ReadByte(Slot1+0x4) == 42 or ReadByte(Slot1+0x4) == 32 or ReadByte(Slot1+0x4) == 22 or ReadByte(Slot1+0x4) == 12 then
+		WriteByte(Slot1+0x4) - 12
 	end
 end
