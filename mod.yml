@@ -21,8 +21,8 @@ assets:
 #  method: imd
 #  source:
 #  - name: itempic/DUMMY 23 HP.png
-#- name: remastered/itempic/item-015.imd/-0.dds #DUMMY 23 (HP Up)
-#  platform: pc
-#  method: copy
-#  source:
-#  - name: remastered/itempic/DUMMY 23 HP.dds
+- name: remastered/itempic/item-015.imd/-0.dds #DUMMY 23 (HP Up)
+  platform: pc
+  method: copy
+  source:
+  - name: remastered/itempic/DUMMY 23 HP.dds
