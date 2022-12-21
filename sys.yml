@@ -1,2 +1,2 @@
 - id: 0x0AE2
-  en: '{:width 90}Maximum HP Decreased!'
+  en: '{:width 90}{:color #FF000080}Maximum HP Decreased!'
