@@ -1,0 +1,8 @@
+- name: scripts/F266B00B GoA ROM.lua
+  method: copy
+  source:
+  - name: F266B00B GoA ROM.lua
+- name: scripts/ReverseHP.lua
+  method: copy
+  source:
+  - name: ReverseHP.lua
