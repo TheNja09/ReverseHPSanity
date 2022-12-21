@@ -17,10 +17,10 @@ assets:
     source:
     - name: sys.yml
       language: en
-- name: itempic/item-015.imd #DUMMY 23 (HP Up)
-  method: imd
-  source:
-  - name: itempic/DUMMY 23 HP.png
+#- name: itempic/item-015.imd #DUMMY 23 (HP Up)
+#  method: imd
+#  source:
+#  - name: itempic/DUMMY 23 HP.png
 - name: remastered/itempic/item-015.imd/-0.dds #DUMMY 23 (HP Up)
   platform: pc
   method: copy
