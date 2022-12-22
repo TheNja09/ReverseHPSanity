@@ -1,4 +1,3 @@
-NewHP = 210
 function _OnFrame()
     World = ReadByte(Now + 0x00)
     Room = ReadByte(Now + 0x01)
@@ -47,8 +46,13 @@ function Cheats()
 	if ReadShort(Now+0) == 0x2002 and ReadShort(Now+8) == 0x01 then -- Sets your HP in the first room of rando
 		WriteByte(Slot1+0x4, 210)
 		WriteByte(Slot1+0x0, 210)
-	elseif ReadByte(Slot1+0x4) > NewHP then
+	elseif ReadByte(Save+0x2498) < 3 and ReadByte(Slot1+0x4) % 10 ~= 0 and ReadByte(Slot1+0x4) > 15 then
 		WriteByte(Slot1+0x4, ReadByte(Slot1+0x4) - Subtractor)
-		NewHP = ReadByte(Slot1+0x4)
+	elseif ReadByte(Slot1+0x4) % 5 ~= 0 and ReadByte(Slot1+0x4) > 12 then
+		WriteByte(Slot1+0x4, ReadByte(Slot1+0x4) - Subtractor)
+	elseif ReadByte(Slot1+0x4) == 12 then
+		WriteByte(Slot1+0x4, 10)
+	elseif ReadByte(Slot1+0x4) == 15 then
+		WriteByte(Slot1+0x4, 10)
 	end
 end
